@@ -247,3 +247,4 @@ $ kubectl port-forward service/superset 8088:8088 -n datastorage
 * Monitorar o cluster EKS com o Prometheus
 * Avaliar se deve subir com máquinas maiores
 * Fazer o S3-sink-connector funcionar
+* Criar workflows com o Github Actions
