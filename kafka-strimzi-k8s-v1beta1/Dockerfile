@@ -4,7 +4,6 @@
 # https://quay.io/repository/strimzi/kafka
 
 FROM quay.io/strimzi/kafka:latest-kafka-2.7.0
-MAINTAINER Carlos Barbosa <carlos.barbosa@a3data.com.br>
 
 # using root user
 USER root:root
