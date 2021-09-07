@@ -1,0 +1,5 @@
+#! /usr/bin/env bash
+
+kubectl exec superset-0 -n datastorage -it -- bash -c 'superset db upgrade'
+kubectl exec superset-0 -n datastorage -it -- bash -c 'superset init'
+kubectl exec superset-0 -n datastorage -it -- bash -c 'superset import_datasources -p /etc/superset/pinot_example_datasource.yaml'

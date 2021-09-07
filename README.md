@@ -216,4 +216,34 @@ $ k port-forward service/pinot-controller 9000:9000 -n datastorage
 
 ### 11. Apache Superset
 
-### TODO
+11.1 Aplique o manifesto do superset 
+
+```shell
+$ k apply -f superset/superset.yaml
+```
+11.2. Confira se deu certo
+```shell
+$ k get pods
+```
+11.3 Crie o ADMIN do superset
+```shell
+$ k exec superset-0 -n datastorage -it -- bash -c 'flask fab create-admin'
+```
+
+11.4 Faça os migrates necessários e importe a datasource do Pinot executando o arquivo [startup-sh](superset/startup-sh)
+
+11.5 Para conseguir acessar a UI do Superset, você deve executar o arquivo [open-superset-ui.sh ](superset/open-superset-ui.sh), caso ele não funcione você pode executar o comando
+```shell
+$ kubectl port-forward service/superset 8088:8088 -n datastorage
+```
+**OBS: Esse comando vai reservar seu terminal e forçá-lo a usar outro terminal**
+
+11.6. O Superset estará disponível em http://localhost:8088. Nele você pode executar queries e construir dashboards com os dados proveninentes do Pinot. 
+
+---
+
+
+# TODO
+* Monitorar o cluster EKS com o Prometheus
+* Avaliar se deve subir com máquinas maiores
+* Fazer o S3-sink-connector funcionar

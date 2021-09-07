@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
 eksctl --profile terraform create cluster \
---name my-cluster-cwoche-modulo2 \
+--name my-cluster-cwoche-modulo2-1 \
 --region us-east-1 \
 --instance-types=m5.xlarge \
 --managed \
@@ -10,7 +10,7 @@ eksctl --profile terraform create cluster \
 --asg-access \
 --nodes-min=2 \
 --nodes-max=3 \
---nodegroup-name=node-group-cwoche-modulo2 \
+--nodegroup-name=node-group-cwoche-modulo2-1 \
 --with-oidc \
 --ssh-access \
 --ssh-public-key terraform \
